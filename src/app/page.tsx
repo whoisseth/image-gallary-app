@@ -84,9 +84,9 @@ export default function Home() {
       ) : (
         <main className="grid w-full grid-cols-2 md:grid-cols-4 gap-4">
           {newData(data).map((d, i) => (
-            <div key={i} className="grid gap-4 ">
+            <div key={i} className="grid gap-4  ">
               {d.map((innterdata, innterkey) => (
-                <div key={innterkey} className="relative">
+                <div key={innterkey} className="relative ">
                   <button
                     onClick={() =>
                       downloadImage(innterdata.urls.full, innterdata.slug)
@@ -96,8 +96,8 @@ export default function Home() {
                     <DownloadIcon />
                   </button>
                   <img
-                    className="h-auto max-w-full rounded-lg"
-                    src={innterdata.urls.small}
+                    className="h-full max-w-full rounded-lg object-cover"
+                    src={innterdata.urls.regular}
                     alt=""
                   />
                 </div>
