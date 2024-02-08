@@ -54,7 +54,7 @@ export default function Home() {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchValue]);
+  }, [searchValue, refetch]);
 
   // data
   const data = imageData?.results ?? [];
@@ -84,9 +84,9 @@ export default function Home() {
       ) : (
         <main className="grid w-full grid-cols-2 md:grid-cols-4 gap-4">
           {newData(data).map((d, i) => (
-            <div className="grid gap-4 ">
-              {d.map((innterdata, i) => (
-                <div className="relative">
+            <div key={i} className="grid gap-4 ">
+              {d.map((innterdata, innterkey) => (
+                <div key={innterkey} className="relative">
                   <button
                     onClick={() =>
                       downloadImage(innterdata.urls.full, innterdata.slug)
